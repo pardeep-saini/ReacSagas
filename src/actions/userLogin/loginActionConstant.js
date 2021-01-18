@@ -1,0 +1,10 @@
+export const GET_LOGIN = 'GET_LOGIN';
+export const GET_LOGIN_SUCCESS = 'GET_LOGIN_SUCCESS';
+export const GET_LOGIN_ERROR = 'GET_LOGIN_ERROR';
+
+export const USER_NAME_CHANGE = 'USER_NAME_CHANGE';
+export const USER_PASSWORD_CHANGE = 'USER_PASSWORD_CHANGE';
+export const LOADING = "LOADING";
+export const ALERT_SUCCESS = "ALERT_SUCCESS";
+export const ALERT_ERROR = "ALERT_ERROR";
+export const ALERT_CLOSE = "ALERT_CLOSE";

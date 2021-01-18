@@ -1,0 +1,40 @@
+#components-layout-demo-top-side-2 .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .ant-row-rtl #components-layout-demo-top-side-2 .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+  }
+  
+  .site-layout-background {
+    background: #fff;
+  }
+  .header-background{
+    background: #fff !important;
+  }
+.fontBold{
+font-weight: bold;
+}
+.fontCentre{
+  display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+.card{
+  padding: 11px;
+}
+.boxSadow{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.boxSadow:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.lableBottam{
+  border-bottom: 1px solid;
+}
