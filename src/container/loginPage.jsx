@@ -13,10 +13,12 @@ import {
   Snackbar
 } from "../includes";
 
+
 import { Alert, AlertTitle } from '@material-ui/lab';
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { connect } from "react-redux";
 import { userNameChange, userPasswordChange, userLoginSubmit } from '../actions/userLogin';
+
 const styles = theme => ({
   layout: {
     width: "auto",
@@ -51,17 +53,18 @@ const styles = theme => ({
 });
 
 class Login extends React.Component {
-  // isLogin() {
-  //   if (User.isLogin()) {
-  //     this.props.history.push("/dashboard");
-  //   }
-  // }
-  // componentDidUpdate() {
-  //   this.isLogin();
-  // }
-  // componentWillMount() {
-  //   this.isLogin();
-  // }
+  isLogin() {
+    if (User.isLogin()) {
+      console.log("User.isLogin()", User.isLogin())
+      // this.props.history.push("/dashboard");
+    }
+  }
+  componentDidUpdate() {
+    this.isLogin();
+  }
+  componentWillMount() {
+    this.isLogin();
+  }
   handleChange = name => event => {
     if (name === "username") {
       this.props.onUserNameChange(event.target.value);
@@ -102,6 +105,7 @@ class Login extends React.Component {
             >
               <FormControl margin="normal" required fullWidth>
                 <TextValidator
+                  style={{width:'100%'}}
                   label="User Name (chetu)"
                   validators={["required"]}
                   name="username"
@@ -113,6 +117,7 @@ class Login extends React.Component {
               </FormControl>
               <FormControl margin="normal" required fullWidth>
                 <TextValidator
+                  style={{width:'100%'}}
                   label="Password"
                   name="password"
                   type="password"
@@ -149,7 +154,6 @@ const mapStateToProps = state => {
   return state;
 };
 
-//dispatchleri maplemeye yarar
 const mapDispatchToProps = {
   onUserNameChange: userNameChange,
   onUserPasswordChange: userPasswordChange,

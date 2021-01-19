@@ -105,9 +105,6 @@ export const handleRequestError = error => {
   return Promise.reject(error);
 };
 
-// This will handle API errors that return an error in the format:
-//   {"errors":[{"code":"031", "message":"Requested animal or agent not found"}]}
-// It will only show the first error message in the errors array, using AntD message.error
 export const handleSimpleApiError = (error, intl) => {
   const { response } = error;
   if (!response) {

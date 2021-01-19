@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import getAllSpacex from './spacexReducer';
 import userLogin from './userLogin/loginReducers';
+import getAccountDetails from './getDashBoardAccount/getAccountReducer';
 const rootReducer = combineReducers({
-  getAllSpacex,
-  userLogin
+  userLogin,
+  getAccountDetails
 });
 
 export default rootReducer;

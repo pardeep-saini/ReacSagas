@@ -2,7 +2,7 @@
  * Costom includes
  */
 
-// export { default as makeStyles } from '@material-ui/core/styles';
+
 export { default as User } from "../tools/user-service";
 
 /**
@@ -80,17 +80,20 @@ export { default as ListSubheader } from "@material-ui/core/ListSubheader";
  */
 // export { default as Box } from '@material-ui/core/Box';
 export { default as Collapse } from '@material-ui/core/Collapse';
-// export { default as KeyboardArrowDownIcon } from '@material-ui/icons/KeyboardArrowDown';
-// export { default as KeyboardArrowUpIcon } from '@material-ui/icons/KeyboardArrowUp';
+export { default as KeyboardArrowDownIcon } from '@material-ui/icons/KeyboardArrowDown';
+export { default as KeyboardArrowUpIcon } from '@material-ui/icons/KeyboardArrowUp';
 export { default as Tabs }  from "@material-ui/core/Tabs";
 export { default as Tab } from "@material-ui/core/Tab";
 export { default as Grid } from "@material-ui/core/Grid";
 
-// export {default as Search} from "@material-ui/icons/Search"
+export { default as Search } from "@material-ui/icons/Search";
+// export { default as makeStyles} from "@material-ui/core/Styles"
+
+
+// export { default as makeStyles } from '@material-ui/core/styles';
 // export { default as AccountCircle } from "@material-ui/icons/AccountCircle";
 // export { default as DataGrid } from "@material-ui/data-grid";
 // export { default as useDemoData } from "@material-ui/x-grid-data-generator";
-
 
 
 

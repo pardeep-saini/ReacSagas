@@ -1,6 +1,5 @@
 import * as types from "../../actions/userLogin/loginActionConstant";
-import { combineReducers } from 'redux';
-import { act } from "react-dom/test-utils";
+
 
 export default function userLogin(state = [], action) {
     console.log("ActionsUserLogin", action)
@@ -23,7 +22,3 @@ export default function userLogin(state = [], action) {
 
   
 
-// export default combineReducers({  
-//   userLogin,
-  
-// })

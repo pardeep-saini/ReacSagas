@@ -1,4 +1,4 @@
-import { GET_LOGIN, GET_LOGIN_SUCCESS, GET_LOGIN_ERROR, USER_NAME_CHANGE, USER_PASSWORD_CHANGE } from "./loginActionConstant";
+import { GET_LOGIN, USER_NAME_CHANGE, USER_PASSWORD_CHANGE } from "./loginActionConstant";
 
 export const userNameChange = username => {
   const type = USER_NAME_CHANGE;
