@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from "react-redux";
 import TableContainer from '@material-ui/core/TableContainer';
+import DashBoardDetails from "../../../container/Dashboard/dashBoardDetails";
+import {openRouterScreen} from '../../../actions/getDashBoardAccount/getAccountName'
 import {
   Collapse,
   IconButton,
@@ -13,7 +16,6 @@ import {
   TableRow,
   KeyboardArrowDownIcon,
   KeyboardArrowUpIcon,
-  Grid
 } from "../../../includes";
 
 import styled from 'styled-components';
@@ -31,25 +33,17 @@ const Progress = styled.span`
    color: #fbb713
 `;
 
-const useStyles = makeStyles((theme) => ({
-  
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  
-}));
 
-function getData() {
-  // showDashboardFlag = false;
-  // console.log("showDashboardFlag", showDashboardFlag)
-}
+
 
 function Row(props) {
-  const { row } = props;
+  const { row, onopenRouterScreen } = props;
   const [open, setOpen] = React.useState(false);
-  
-  const data = {"one": 1, "two": 2, "three": 3, "four": 4}
+  function getData(event) {
+    console.log("EventData", event.target.value)
+    onopenRouterScreen(true)
+    
+  }
 
   return (
     <React.Fragment>
@@ -62,11 +56,11 @@ function Row(props) {
         <TableCell component="th" scope="row">
           {row.name}
         </TableCell>
-        <TableCell align="center" >{"00"}</TableCell>
-        <TableCell align="center"><Online>{row.id}</Online></TableCell>
-        <TableCell align="center"><Offline>{"80"}</Offline></TableCell>
-        <TableCell align="center"><Progress>{"90"}</Progress></TableCell>
-        <TableCell align="center">{row.id}</TableCell>
+        <TableCell align={right}>{"00"}</TableCell>
+        <TableCell align={right}><Online>{row.id}</Online></TableCell>
+        <TableCell align={right}><Offline>{"80"}</Offline></TableCell>
+        <TableCell align={right}><Progress>{"90"}</Progress></TableCell>
+        <TableCell align={right}>{row.id}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -75,15 +69,15 @@ function Row(props) {
                 <TableBody>
                     <TableRow key={"Lorem Ipsum"}>
                          <TableCell/>
-                      <TableCell component="th" scope="row" onClick={getData} style={{cursor: 'pointer'}}>
+                      <TableCell component="th" scope="row" onClick={getData} value={"Lorem Ipsum"} style={{cursor: 'pointer'}}>
                         {"Lorem Ipsum"}
                       </TableCell>
-                      <TableCell align="center"></TableCell>
-                      <TableCell align="center">{"85"}</TableCell>
-                      <TableCell align="center"><Online>{"86"}</Online></TableCell>
-                      <TableCell align="center"><Offline>{"87"}</Offline></TableCell>
-                      <TableCell align="center"><Progress>{"88"}</Progress></TableCell>
-                      <TableCell align="center">{"89"}</TableCell>
+                      <TableCell align={right}></TableCell>
+                      <TableCell align={right}>{"85"}</TableCell>
+                      <TableCell align={right}><Online>{"86"}</Online></TableCell>
+                      <TableCell align={right}><Offline>{"87"}</Offline></TableCell>
+                      <TableCell align={right}><Progress>{"88"}</Progress></TableCell>
+                      <TableCell align={right}>{"89"}</TableCell>
                     </TableRow>
                 </TableBody>
               </Table>
@@ -113,14 +107,18 @@ Row.propTypes = {
 };
 
 
-export default function AccountInfo(props) {
-  const [showDashboardFlag, setDashboardFlag] = useState(false)
-  const [spacing, setSpacing] = React.useState(2);
-  const classes = useStyles();
- const {accountDetails} = props;
+function AccountInfo(props) {
+  const {getAccountDetails} = props;
+  let ResultData = [];
+  if(props.serachResult && props.serachResult.action && props.serachResult.action.type === 'SEARCH_RESULT') {
+    ResultData = props.serachResult && props.serachResult.action.resultObject && props.serachResult.action.resultObject.accountDetails;
+  } else {
+    ResultData = props.accountDetails;
+  }
+
   return (
     <>
-    {showDashboardFlag ?  <TableContainer component={Paper}>
+    {getAccountDetails.open ? <DashBoardDetails /> : <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
       <TableHead>
           <TableRow>
@@ -136,24 +134,28 @@ export default function AccountInfo(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {accountDetails && accountDetails.map((row) => (
-            <Row key={row.name} row={row} />
+          {ResultData && ResultData.map((row) => (
+            <Row key={row.name} row={row} onopenRouterScreen = {props.onopenRouterScreen}/>
           ))}
         </TableBody>
       </Table>
-    </TableContainer> :  <Grid container  spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {[0, 1, 2, 3].map((value) => (
-            <Grid key={value} item>
-              <Paper className={classes.paper} />
-            </Grid>
-          ))}
-        </Grid>
-      </Grid>
-     
-    </Grid>}
+    </TableContainer>}
    
     </>
   );
 }
+
+
+const mapStateToProps = state => {
+  return state;
+};
+
+const mapDispatchToProps = {
+  onopenRouterScreen: openRouterScreen
+};
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AccountInfo);

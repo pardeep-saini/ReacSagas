@@ -6,7 +6,7 @@ import {
   Button,
   Paper,
   Avatar,
-  // LockIcon,
+  LockIcon,
   Typography,
   FormControl,
   User,
@@ -95,7 +95,7 @@ class Login extends React.Component {
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Avatar className={classes.avatar}>
-              {/* <LockIcon /> */}
+              <LockIcon />
             </Avatar>
             <Typography variant="headline">Login</Typography>
             <ValidatorForm

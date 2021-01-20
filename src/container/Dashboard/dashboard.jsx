@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import TabPannel from '../../components/Tab';
 import { connect } from "react-redux";
 import {getAccountDetails} from "../../actions/getDashBoardAccount/getAccountName";
+import * as S from './Styled';
 
 
 class Dashboard extends Component {
@@ -18,24 +19,17 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.ongetAccountDetails();
   }
-  // componentDidUpdate(previousProps, previousState) {
-  //   console.log("PrePropsData", previousProps, previousState)
-  //   if (previousProps.getAccountDetails !== this.state.getUserList) {
-  //     this.setState({getUserList: this.props.getAccountDetails.data})
-  //   }
-  // }
+  
  
     render() {
-   
       const {getAccountDetails} = this.props;
-      console.log("ListProps", getAccountDetails.data)
       return (
         <Card>
             <CardContent>
                 <Header/>
             </CardContent>
             
-            <CardActions style={{marginTop: '33px', backgroundColor:'#f2f2f2'}}>
+            <CardActions style={S.customStyles.content}>
                 <TabPannel accountDetails = {getAccountDetails.data}/>
             </CardActions>
       </Card>

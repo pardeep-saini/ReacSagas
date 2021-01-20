@@ -8,7 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import AccountInfo from './AccountInfo/index';
 import SearchAccount from '../SearchAccount';
+import RouterScreen from './Routers';
+import { connect } from "react-redux";
 import {Container} from './Styled';
+import * as S from './Styled';
 
 function TabPanel(props) {
   
@@ -51,36 +54,59 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleTabs(props) {
-  const {accountDetails} = props;
+
+function SimpleTabs(props) {
+  console.log("PropsDataDetails", props)
+  const {accountDetails, getAccountDetails} = props;
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  
+
   return (
-    // <Container>
-       <div className={classes.root} style={{paddingLeft: '3%',paddingRight: '3%',backgroundColor:'#f2f2f2'}}>
+       <div className={classes.root} style={S.customStyles.content}>
       <AppBar position="static" style={{backgroundColor:'#f2f2f2'}}>
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" style={{color:'black'}}>
+        <Tabs 
+        value={value} 
+        onChange={handleChange} 
+        aria-label="" 
+        style={{color:'black'}}
+        >
           <Tab label="Dashboard" {...a11yProps(0)} />
           <Tab label="Routers" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel></TabPanel>
-      <TabPanel style={{backgroundColor: 'white', width: '96%',marginLeft: 'auto',marginRight: 'auto'}}>
-         <SearchAccount />
-      </TabPanel>
+      {console.log("getAccountDetails.open",getAccountDetails.open, value)}
+      {value == 0 && getAccountDetails.open!= true? 
+      <TabPanel style={S.customStyles.serachBar}>
+         <SearchAccount value={value} accountDetails={accountDetails}  />
+      </TabPanel> : null}
+      
+   
       <TabPanel value={value} index={0} >
           <AccountInfo accountDetails={accountDetails}  />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Routers
+        <RouterScreen />
       </TabPanel>
     </div>
-  
-    // </Container>
-   
   );
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+const mapDispatchToProps = {
+  
+};
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SimpleTabs);

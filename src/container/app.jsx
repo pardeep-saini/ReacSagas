@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginPage from './loginPage';
 import Dashboard from './Dashboard'
+import DashBoardDetails from './Dashboard/dashBoardDetails'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 class App extends Component {
   render() {
@@ -10,8 +11,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={LoginPage} />
             <Route exact path="/dashboard" component={Dashboard} />
-             {/*<Route exact path="/musteriler" component={wrapperCustomers} />
-            <Route exact path="/siparisler" component={wrapperOrders} />
+           <Route exact path="/dashboardDetails" component={DashBoardDetails} />
+             {/* <Route exact path="/siparisler" component={wrapperOrders} />
             <Route exact path="/raporlar" component={wrapperReports} />
             <Route
               exact      

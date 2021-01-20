@@ -11,6 +11,8 @@ export default function getAccountDetails(state = [], action) {
         return { loading: true, data: response };
       case types.GET_ACCOUNT_DETAILS_ERROR:
         return { loading: false, response };
+      case types.OPEN_ROUTER_SCREEN:
+        return {open: true, action}
       default:
         return state;
     }

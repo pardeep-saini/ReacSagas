@@ -26,7 +26,8 @@ export { default as CssBaseline } from "@material-ui/core/CssBaseline";
 export { default as FormControl } from "@material-ui/core/FormControl";
 export { default as Input } from "@material-ui/core/Input";
 export { default as InputLabel } from "@material-ui/core/InputLabel";
-// export { default as LockIcon } from "@material-ui/icons/LockOutlined";
+export { default as LockIcon } from "@material-ui/icons/LockOutlined";
+// export { default as AutorenewIcon } from "@material-ui/icons/AutorenewIcon";
 export { default as Paper } from "@material-ui/core/Paper";
 export { default as Dialog } from "@material-ui/core/Dialog";
 export { default as Typography } from "@material-ui/core/Typography";
@@ -85,14 +86,14 @@ export { default as KeyboardArrowUpIcon } from '@material-ui/icons/KeyboardArrow
 export { default as Tabs }  from "@material-ui/core/Tabs";
 export { default as Tab } from "@material-ui/core/Tab";
 export { default as Grid } from "@material-ui/core/Grid";
-
+// export { default as DataGrid } from "@material-ui/data-grid";
 export { default as Search } from "@material-ui/icons/Search";
 // export { default as makeStyles} from "@material-ui/core/Styles"
 
 
 // export { default as makeStyles } from '@material-ui/core/styles';
 // export { default as AccountCircle } from "@material-ui/icons/AccountCircle";
-// export { default as DataGrid } from "@material-ui/data-grid";
+
 // export { default as useDemoData } from "@material-ui/x-grid-data-generator";
 
 

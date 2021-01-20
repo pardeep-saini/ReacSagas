@@ -1,0 +1,4 @@
+export const SEARCH_RESULT = 'SEARCH_RESULT';
+// export const GET_LOGIN_SUCCESS = 'GET_LOGIN_SUCCESS';
+// export const GET_LOGIN_ERROR = 'GET_LOGIN_ERROR';
+
