@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from "react-redux";
+import CircularProgress from '@material-ui/core/CircularProgress';
 import TableContainer from '@material-ui/core/TableContainer';
 import DashBoardDetails from "../../../container/Dashboard/dashBoardDetails";
 import {openRouterScreen} from '../../../actions/getDashBoardAccount/getAccountName'
+import * as S from '../Styled';
 import {
   Collapse,
   IconButton,
@@ -33,10 +35,42 @@ const Progress = styled.span`
    color: #fbb713
 `;
 
-
+const mainArray = [
+  {
+    "id": 1,
+    "account": "Invosys Wholesale",
+    "routers": "68",
+    "routersonline": "50",
+    "routersoffline": "10",
+    "routersinprogree": "5",
+    "quarantine": "3",
+    "subAccount": [
+      { 
+        "id": "1",
+        "routers": "68",
+        "routersonline": "50",
+        "routersoffline": "10",
+        "routersinprogree": "5",
+        "quaranitine": "3",
+     },
+     {
+      "id": "2",
+      "routers": "20",
+      "routersonline": "5",
+      "routersoffline": "5",
+      "routersinprogree": "5",
+      "quaranitine": "5",
+   }
+    ],
+   
+  },
+ 
+ 
+]
 
 
 function Row(props) {
+  console.log("mainArray", mainArray)
   const { row, onopenRouterScreen } = props;
   const [open, setOpen] = React.useState(false);
   function getData(event) {
@@ -108,6 +142,7 @@ Row.propTypes = {
 
 
 function AccountInfo(props) {
+  console.log("getAccountDetails", props.getAccountDetails)
   const {getAccountDetails} = props;
   let ResultData = [];
   if(props.serachResult && props.serachResult.action && props.serachResult.action.type === 'SEARCH_RESULT') {
@@ -134,6 +169,12 @@ function AccountInfo(props) {
           </TableRow>
         </TableHead>
         <TableBody>
+        {ResultData && ResultData.length>0 ? null :  <center style={S.customStyles.loaderSyled}>
+          <CircularProgress style={{width: '28px', height: '100%'}}/>
+          </center> }
+         
+        
+       
           {ResultData && ResultData.map((row) => (
             <Row key={row.name} row={row} onopenRouterScreen = {props.onopenRouterScreen}/>
           ))}

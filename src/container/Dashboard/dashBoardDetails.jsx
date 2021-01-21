@@ -5,6 +5,8 @@ import {
     Paper,
     Grid
   } from "../../includes";
+import OfflinePie from '../../components/OfflinePieChart';
+import DevicesTypes from '../../components/DevicesTypes';
 
 
 class DashBoardDetails extends Component {
@@ -57,7 +59,15 @@ class DashBoardDetails extends Component {
         <Grid container justify="center" spacing={2}>
           {[0, 1].map((value) => (
             <Grid key={value} item>
-              <Paper style={S.customStyles.paperSecondRow} />
+              <Paper style={S.customStyles.paperSecondRow} >
+              <S.RouterValue>
+                  {
+                    value==0 ? <DevicesTypes name={"Device Type"}/>
+                 
+                    : <OfflinePie name={"Offline By Supplier"}/>
+                  }
+                  </S.RouterValue>
+              </Paper>
             </Grid>
           ))}
         </Grid>

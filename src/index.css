@@ -16,4 +16,9 @@ code {
 .MuiBox-root+ .MuiBox-root-16 {
   padding: 0px;
 }
+
+.Component-root-14 {
+  width: 50%;
+  height: 166px;
+}
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');

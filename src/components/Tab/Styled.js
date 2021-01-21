@@ -18,6 +18,11 @@ export const CSVColor = styled.span`
         padding: 6%;
         cursor: pointer;
 `;
+// export const Loader = styled.center`
+//         margin-left: 942%;
+// `;
+
+
 
 export const customStyles = {
         content: {
@@ -40,6 +45,10 @@ export const customStyles = {
         },
         labelStyle :{
                 fontSize: '13px', width: '107%'
+        },
+        loaderSyled: {
+                marginLeft:' 942%'
+
         }
        
         

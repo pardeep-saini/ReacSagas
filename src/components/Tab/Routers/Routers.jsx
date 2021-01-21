@@ -33,11 +33,11 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData('Invosys Wholesale', 'INVO225588', 'Zuxel VMG 1312-T20B', 'S200Y31026593', 'Online/Offline/Quarantine'),
-  createData('Invosys Reseller1', 'DATA012223', 'Teachnicolor TG 588v2', 'S200Z000000', 'Online/Offline/Quarantine'),
-  createData('Invosys Reseller2', 'DATA012224', 'Teachicolor DWA0120', 'S200Z000001', 'Online/Offline/Quarantine'),
-  createData('Invosys Reseller3', 'DATA01225', 'Zyxel VMG3925-B10C', 'S200Z000002', 'Online/Offline/Quarantine'),
-  createData('Invosys Reseller4', 'DATA01226', 'Draytek 2762n', 'S200Z000003', 'Online/Offline/Quarantine'),
+  createData('Invosys Wholesale', 'INVO225588', 'Zuxel VMG 1312-T20B', 'S200Y31026593', 'Online'),
+  createData('Invosys Reseller1', 'DATA012223', 'Teachnicolor TG 588v2', 'S200Z000000', 'Quarantine'),
+  createData('Invosys Reseller2', 'DATA012224', 'Teachicolor DWA0120', 'S200Z000001', 'Offline'),
+  createData('Invosys Reseller3', 'DATA01225', 'Zyxel VMG3925-B10C', 'S200Z000002', 'Online'),
+  createData('Invosys Reseller4', 'DATA01226', 'Draytek 2762n', 'S200Z000003', 'Offline'),
 ];
 
 function TabPanel(props) {
@@ -61,6 +61,7 @@ function TabPanel(props) {
 export default function Routers() {
   const classes = useStyles();
   const[getRoutersDetails, setRoutersDetails] = useState()
+  routerArray=[];
   let handleChangeSearch;
    handleChangeSearch = event => {
     setRoutersDetails({
@@ -71,10 +72,12 @@ export default function Routers() {
    });
  
   if(getRoutersDetails && getRoutersDetails.routerFilter) {
+    
       routerArray = getRoutersDetails.rows;
   } else {
      routerArray = rows
   }
+  console.log("routerArray", routerArray);
  };
 
   return (
