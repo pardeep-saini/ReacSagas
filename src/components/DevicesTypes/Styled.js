@@ -22,8 +22,8 @@ export const customStyles = {
         },
         cycleStyle: {
           
-                height: '25px',
-                width: '25px',
+                height: '16px',
+                width: '16px',
                 backgroundColor: '#bbb',
                 borderRadius: '50%',
                 display: 'inline-block',

@@ -5,8 +5,10 @@ export const getAccountDetails = (details) => {
     return {type, details}
 };
 
-export const openRouterScreen = (details) => {
-    console.log("detailsdetails",details)
+export const openRouterScreen = (details, row) => {
+    console.log("detailsdetails",details, row)
     const type = OPEN_ROUTER_SCREEN;
-    return {type, details}
+    return {type, details, row}
 };
+
+

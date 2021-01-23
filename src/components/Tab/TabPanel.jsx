@@ -14,7 +14,8 @@ import {Container} from './Styled';
 import * as S from './Styled';
 
 function TabPanel(props) {
-  
+
+    console.log("HandleChange", props)
   const { children, value, index, ...other } = props;
 
   return (
@@ -41,6 +42,7 @@ TabPanel.propTypes = {
 };
 
 function a11yProps(index) {
+  console.log("a11yPropsa11yProps",index)
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
@@ -61,6 +63,7 @@ function SimpleTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
+    
     setValue(newValue);
   };
 
@@ -80,7 +83,6 @@ function SimpleTabs(props) {
         </Tabs>
       </AppBar>
       <TabPanel></TabPanel>
-      {console.log("getAccountDetails.open",getAccountDetails.open, value)}
       {value == 0 && getAccountDetails.open!= true? 
       <TabPanel style={S.customStyles.serachBar}>
          <SearchAccount value={value} accountDetails={accountDetails}  />

@@ -56,7 +56,8 @@ import {
     },
   }));
   
-  export default function Header() {
+  export default function Header(props) {
+    console.log("propsHeader", props)
     const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
   
     const [state, setState] = useState({

@@ -17,7 +17,9 @@ class DashBoardDetails extends Component {
     }
   }
     render() {
-      const {getAccountDetails} = this.props;
+      let {getAccountDetails} = this.props;
+      let {row} = getAccountDetails.action
+      console.log("Hi i am :::" , row)
       return (
         <>
       <Grid container  spacing={2}>
@@ -36,10 +38,10 @@ class DashBoardDetails extends Component {
                   </S.RouterHead>
                   <S.RouterValue>
                   {
-                    value==0 ? "50"
-                    :  value==1 ? <S.Online>45</S.Online>
-                    :  value==2 ? <S.Offline>3</S.Offline>
-                    : <S.Progress>2</S.Progress>
+                    value==0 ? row.routers
+                    :  value==1 ? <S.Online>{row.routersonline}</S.Online>
+                    :  value==2 ? <S.Offline>{row.routersoffline}</S.Offline>
+                    : <S.Progress>{row.routersinprogree}</S.Progress>
                   }
                   </S.RouterValue>
                   <S.RouterFooter>
